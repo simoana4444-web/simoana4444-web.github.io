@@ -1,335 +1,447 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K6GS1V0DRF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-K6GS1V0DRF');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amine Web | حوّل فكرتك إلى موقع احترافي</title>
-    <meta name="google-site-verification" content="r5M65RtOBg-5ML8do82AqefiJ9ggHA0F9BV7kgpuOpg" />
-    <meta name="description" content="Amine Web — تصميم مواقع احترافية في المغرب للشركات والمتاجر والصالونات. تسليم في 48 ساعة، استضافة مجانية، ودعم مستمر.">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <title>Amine Web | تصميم مواقع احترافية في المغرب</title>
+    <meta name="description" content="Amine Web — وكالة تصميم مواقع في المغرب. مواقع شركات، متاجر إلكترونية، صالونات. تسليم 48 ساعة، استضافة مجانية، دعم مستمر.">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background: #0a1628;
-            color: #fff;
+        :root{
+            --bg:#070b14; --bg2:#0b1220; --card:#101a2e;
+            --cyan:#22d3ee; --cyan2:#0ea5e9; --gold:#fbbf24;
+            --green:#22c55e; --txt:#e8eef7; --muted:#93a4bd;
+            --border:rgba(34,211,238,.14);
         }
-        nav {
-            background: rgba(10, 22, 40, 0.95);
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;line-height:1.7}
+
+        /* ═══ خلفية متحركة ═══ */
+        .bg-orbs{position:fixed;inset:0;z-index:-1;overflow:hidden}
+        .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:float 14s ease-in-out infinite}
+        .orb1{width:420px;height:420px;background:#0ea5e9;top:-120px;right:-120px}
+        .orb2{width:360px;height:360px;background:#7c3aed;bottom:-100px;left:-100px;animation-delay:-5s}
+        .orb3{width:280px;height:280px;background:#22d3ee;top:40%;left:30%;animation-delay:-9s;opacity:.2}
+        @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-40px) scale(1.08)}}
+
+        /* ═══ التنقل ═══ */
+        nav{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(7,11,20,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+        .nav-inner{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+        .logo{font-size:1.4rem;font-weight:900}
+        .logo b{color:var(--cyan)}
+        .nav-links{display:flex;gap:22px}
+        .nav-links a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem;transition:.2s}
+        .nav-links a:hover{color:var(--cyan)}
+        .nav-cta{background:linear-gradient(90deg,var(--cyan2),var(--cyan));color:#fff;padding:9px 22px;border-radius:30px;font-weight:800;font-size:.9rem;text-decoration:none}
+
+        /* ═══ الواجهة ═══ */
+        .hero{min-height:100vh;display:flex;align-items:center;padding:120px 20px 60px;position:relative}
+        .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(7,11,20,.72),rgba(7,11,20,.9)),url('1000038024.jpg') center/cover no-repeat;z-index:-1}
+        .hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;width:100%}
+        .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,211,238,.1);border:1px solid var(--border);color:var(--cyan);padding:8px 18px;border-radius:30px;font-size:.85rem;font-weight:700;margin-bottom:22px}
+        .badge .dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 1.6s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+        .hero h1{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:900;line-height:1.3;margin-bottom:18px}
+        .hero h1 span{background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+        .hero p{color:var(--muted);font-size:1.1rem;max-width:480px;margin-bottom:30px}
+        .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 34px;border-radius:32px;font-weight:800;text-decoration:none;transition:.25s;font-size:1rem}
+        .btn-primary{background:linear-gradient(90deg,var(--cyan2),var(--cyan));color:#fff;box-shadow:0 8px 30px rgba(14,165,233,.35)}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(14,165,233,.5)}
+        .btn-ghost{border:1px solid var(--border);color:var(--txt)}
+        .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+        .stars-line{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.95rem}
+        .stars-line .st{color:var(--gold);font-size:1.1rem;letter-spacing:2px}
+
+        .hero-visual{position:relative;display:flex;justify-content:center}
+        .browser{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;width:100%;max-width:440px;box-shadow:0 30px 80px rgba(0,0,0,.55);animation:heroFloat 5s ease-in-out infinite}
+        @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+        .b-bar{display:flex;gap:6px;padding:12px 14px;background:#0a1120;border-bottom:1px solid var(--border)}
+        .b-bar i{width:11px;height:11px;border-radius:50%;display:block}
+        .b-bar i:nth-child(1){background:#ef4444}.b-bar i:nth-child(2){background:#fbbf24}.b-bar i:nth-child(3){background:#22c55e}
+        .b-body{padding:34px 22px;background:linear-gradient(145deg,#0e1a30,#0a1220);text-align:center}
+        .b-body h4{color:var(--cyan);font-size:1.3rem;margin-bottom:8px}
+        .b-body p{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+        .b-btn{background:linear-gradient(90deg,var(--cyan2),var(--cyan));color:#fff;padding:10px 26px;border-radius:24px;display:inline-block;font-weight:800;font-size:.9rem}
+
+        /* ═══ شريط الثقة ═══ */
+        .trust{background:var(--bg2);border-block:1px solid var(--border);padding:22px 20px}
+        .trust-inner{max-width:1100px;margin:auto;display:flex;justify-content:center;gap:40px;flex-wrap:wrap;color:var(--muted);font-weight:700}
+        .trust-inner span{display:flex;align-items:center;gap:8px;font-size:.95rem}
+        .trust-inner b{color:var(--cyan)}
+
+        /* ═══ أقسام عامة ═══ */
+        section{padding:90px 20px}
+        .container{max-width:1100px;margin:auto}
+        .sec-head{text-align:center;margin-bottom:56px}
+        .sec-head .kicker{color:var(--cyan);font-weight:800;font-size:.9rem;letter-spacing:1px;margin-bottom:10px;display:block}
+        .sec-head h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900}
+        .sec-head p{color:var(--muted);margin-top:10px}
+
+        /* ═══ عدادات ═══ */
+        .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px}
+        .stat{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px 16px;text-align:center;transition:.3s}
+        .stat:hover{transform:translateY(-6px);border-color:var(--cyan)}
+        .stat .num{font-size:2.2rem;font-weight:900;color:var(--cyan)}
+        .stat .lbl{color:var(--muted);font-size:.92rem;margin-top:4px}
+
+        /* ═══ الخدمات ═══ */
+        .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+        .svc{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px 26px;transition:.3s;position:relative;overflow:hidden}
+        .svc::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan2),var(--cyan));opacity:0;transition:.3s}
+        .svc:hover{transform:translateY(-8px);border-color:rgba(34,211,238,.4)}
+        .svc:hover::before{opacity:1}
+        .svc .ico{width:58px;height:58px;border-radius:16px;background:rgba(34,211,238,.1);display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:18px}
+        .svc h3{font-size:1.2rem;margin-bottom:8px}
+        .svc p{color:var(--muted);font-size:.95rem}
+
+        /* ═══ الأعمال ═══ */
+        .works{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+        .work{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.3s}
+        .work:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+        .work img{width:100%;height:190px;object-fit:cover;display:block;transition:.5s}
+        .work:hover img{transform:scale(1.06)}
+        .work .wi{padding:20px}
+        .work h4{font-size:1.05rem;margin-bottom:6px}
+        .work p{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+        .work a{color:var(--cyan);font-weight:700;font-size:.9rem;text-decoration:none}
+
+        /* ═══ الأسعار ═══ */
+        .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;align-items:stretch}
+        .plan{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:36px 28px;text-align:center;position:relative;transition:.3s;display:flex;flex-direction:column}
+        .plan:hover{transform:translateY(-8px)}
+        .plan.pop{border-color:var(--gold);box-shadow:0 0 50px rgba(251,191,36,.12)}
+        .plan .tag{position:absolute;top:-14px;right:50%;transform:translateX(50%);background:linear-gradient(90deg,var(--gold),#f59e0b);color:#1a1200;font-weight:900;font-size:.8rem;padding:5px 18px;border-radius:20px}
+        .plan h3{font-size:1.15rem;margin-bottom:6px}
+        .plan .pr{font-size:2.4rem;font-weight:900;color:var(--cyan);margin:10px 0}
+        .plan .pr small{font-size:.95rem;color:var(--muted);font-weight:500}
+        .plan ul{list-style:none;text-align:right;margin:20px 0;flex:1}
+        .plan li{padding:9px 0;color:var(--muted);font-size:.93rem;border-bottom:1px dashed rgba(147,164,189,.15);display:flex;gap:8px;align-items:center}
+        .plan li::before{content:'✓';color:var(--green);font-weight:900}
+        .plan .btn{justify-content:center;width:100%}
+
+        /* ═══ التقييمات ═══ */
+        .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+        .rev{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;transition:.3s}
+        .rev:hover{transform:translateY(-6px)}
+        .rev .stars{color:var(--gold);font-size:1.15rem;letter-spacing:3px;margin-bottom:14px}
+        .rev p{color:var(--txt);font-size:1rem;margin-bottom:16px}
+        .rev .who{display:flex;align-items:center;gap:12px}
+        .rev .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--cyan2),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff}
+        .rev .who b{display:block;font-size:.95rem}
+        .rev .who small{color:var(--muted);font-size:.8rem}
+
+        /* ═══ الأسئلة ═══ */
+        .faq{max-width:760px;margin:auto}
+        .faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden}
+        .faq-q{width:100%;background:none;border:none;color:var(--txt);font-family:inherit;font-size:1.05rem;font-weight:700;padding:20px 24px;text-align:right;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+        .faq-q .arr{color:var(--cyan);transition:.3s;font-size:1.2rem}
+        .faq-item.open .arr{transform:rotate(180deg)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted);padding:0 24px}
+        .faq-item.open .faq-a{max-height:220px;padding-bottom:22px}
+
+        /* ═══ التواصل ═══ */
+        .cta{background:linear-gradient(135deg,rgba(14,165,233,.16),rgba(124,58,237,.14));border:1px solid var(--border);border-radius:28px;text-align:center;padding:64px 26px}
+        .cta h2{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:900;margin-bottom:12px}
+        .cta p{color:var(--muted);margin-bottom:28px}
+        .btn-wa{background:var(--green);color:#fff;padding:16px 44px;border-radius:32px;font-weight:900;font-size:1.1rem;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 34px rgba(34,197,94,.35);transition:.25s}
+        .btn-wa:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(34,197,94,.5)}
+        .cta .mail{margin-top:20px;color:var(--muted)}
+        .cta .mail a{color:var(--cyan);text-decoration:none;font-weight:700;direction:ltr;display:inline-block}
+
+        footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;color:var(--muted);font-size:.9rem}
+        footer b{color:var(--cyan)}
+
+        .wa-float{position:fixed;bottom:22px;left:22px;width:58px;height:58px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.45);z-index:999;animation:waPulse 2.4s infinite}
+        @keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{box-shadow:0 0 0 14px rgba(34,197,94,0)}}
+        .wa-float svg{width:30px;height:30px;fill:#fff}
+
+        /* ═══ حركات الظهور ═══ */
+        .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s ease}
+        .reveal.show{opacity:1;transform:translateY(0)}
+
+        @media(max-width:900px){
+            .hero-inner{grid-template-columns:1fr;text-align:center}
+            .hero p{margin-inline:auto}
+            .hero-btns,.stars-line{justify-content:center}
+            .nav-links{display:none}
         }
-        nav .logo { font-size: 26px; font-weight: 900; color: #38bdf8; }
-        nav .logo span { color: #fff; }
-        nav a { color: #cbd5e1; text-decoration: none; margin-right: 20px; font-weight: 500; }
-        nav a:hover { color: #38bdf8; }
-        .hero {
-            background:
-                linear-gradient(rgba(10, 22, 40, 0.40), rgba(10, 22, 40, 0.65)),
-                url('1000038024.jpg') center 30% / cover no-repeat;
-            padding: 60px 20px;
-        }
-        .hero-inner {
-            display: flex; align-items: center; justify-content: center;
-            gap: 40px; flex-wrap: wrap; max-width: 1100px; margin: auto;
-        }
-        .hero-text { max-width: 460px; }
-        .badge {
-            display: inline-block; background: rgba(56, 189, 248, 0.15); color: #38bdf8;
-            padding: 8px 20px; border-radius: 30px; font-size: 13px; font-weight: 700; margin-bottom: 18px;
-        }
-        .hero-text h1 { font-size: 44px; font-weight: 900; line-height: 1.35; margin-bottom: 15px; }
-        .hero-text h1 span { color: #38bdf8; }
-        .hero-text p { font-size: 18px; color: #94a3b8; margin-bottom: 25px; }
-        .btn {
-            background: linear-gradient(90deg, #0ea5e9, #38bdf8); color: #fff;
-            padding: 15px 40px; border-radius: 30px; text-decoration: none;
-            font-weight: 800; font-size: 18px; display: inline-block;
-            box-shadow: 0 5px 25px rgba(56, 189, 248, 0.4);
-        }
-        .price { margin-top: 20px; font-size: 20px; font-weight: 800; color: #25d366; }
-        .devices { position: relative; width: 420px; height: 280px; }
-        .monitor {
-            background: #fff; border: 8px solid #1e293b; border-radius: 14px;
-            width: 360px; height: 220px; overflow: hidden;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.5);
-        }
-        .m-nav {
-            background: #fff; padding: 8px 12px; display: flex;
-            justify-content: space-between; align-items: center;
-            border-bottom: 1px solid #e2e8f0; font-size: 11px; font-weight: 800; color: #0ea5e9;
-        }
-        .m-hero {
-            background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: #fff;
-            text-align: center; padding: 35px 15px;
-        }
-        .m-hero h5 { font-size: 17px; margin-bottom: 8px; }
-        .m-hero p { font-size: 11px; opacity: 0.9; margin-bottom: 12px; }
-        .m-btn { background: #fff; color: #0ea5e9; padding: 6px 18px; border-radius: 20px; font-size: 11px; font-weight: 800; display: inline-block; }
-        .m-stand { width: 70px; height: 14px; background: #1e293b; margin: auto; border-radius: 0 0 8px 8px; }
-        .phone {
-            position: absolute; bottom: -8px; left: -6px; background: #fff;
-            border: 6px solid #1e293b; border-radius: 20px; width: 105px; height: 200px;
-            overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-        }
-        .p-hero { background: linear-gradient(160deg, #123a5f, #0e7490); color: #fff; text-align: center; padding: 18px 8px; }
-        .p-hero .cart { font-size: 30px; }
-        .p-hero h6 { font-size: 11px; margin: 6px 0; }
-        .p-btn { background: #38bdf8; padding: 4px 12px; border-radius: 15px; font-size: 9px; font-weight: 800; display: inline-block; }
-        .services { text-align: center; padding: 70px 20px; }
-        .services h2, .portfolio h2 { font-size: 32px; font-weight: 900; margin-bottom: 10px; }
-        .services h2 span, .portfolio h2 span { color: #38bdf8; }
-        .section-sub { color: #94a3b8; margin-bottom: 45px; font-size: 17px; }
-        .cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .card {
-            background: linear-gradient(145deg, #12233d, #0d1b30);
-            border: 1px solid rgba(56, 189, 248, 0.15);
-            width: 240px; padding: 30px 20px; border-radius: 18px; transition: transform 0.3s;
-        }
-        .card:hover { transform: translateY(-8px); border-color: #38bdf8; }
-        .card .icon { font-size: 38px; margin-bottom: 15px; }
-        .card h3 { font-size: 18px; margin-bottom: 8px; }
-        .card p { color: #94a3b8; font-size: 14px; }
-        .review-card {
-            background: rgba(37, 211, 102, 0.07);
-            border: 1px solid rgba(37, 211, 102, 0.25);
-            width: 320px; padding: 25px; border-radius: 18px; text-align: right;
-            transition: transform 0.3s;
-        }
-        .review-card:hover { transform: translateY(-8px); }
-        .review-card p { font-size: 17px; margin-bottom: 10px; }
-        .review-card small { color: #38bdf8; font-weight: 700; }
-        .portfolio { background: #0d1b30; text-align: center; padding: 70px 20px; }
-        .work {
-            background: #12233d; border: 1px solid rgba(56, 189, 248, 0.1);
-            width: 300px; border-radius: 18px; overflow: hidden; text-align: right;
-        }
-        .work img { width: 100%; height: 170px; object-fit: cover; display: block; }
-        .work .info { padding: 15px 18px; }
-        .work h4 { font-size: 17px; margin-bottom: 5px; }
-        .work p { color: #94a3b8; font-size: 13px; }
-        .work a { color: #38bdf8; font-weight: 700; font-size: 13px; display: inline-block; margin-top: 8px; text-decoration: none; }
-        .work a:hover { text-decoration: underline; }
-        .features { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 0 20px 60px; }
-        .feature {
-            background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 15px 25px; border-radius: 30px; font-weight: 700; font-size: 15px;
-        }
-        .contact { background: linear-gradient(135deg, #0e7490, #123a5f); text-align: center; padding: 70px 20px; }
-        .contact h2 { font-size: 30px; font-weight: 900; margin-bottom: 15px; }
-        .contact p { color: #cbd5e1; margin-bottom: 30px; font-size: 17px; }
-        .btn-whatsapp {
-            background: #25d366; color: #fff; padding: 16px 45px; border-radius: 30px;
-            text-decoration: none; font-weight: 800; font-size: 19px; display: inline-block; margin-bottom: 25px;
-        }
-        .contact .info { color: #e2e8f0; font-size: 16px; line-height: 2; }
-        footer { background: #060d18; text-align: center; padding: 20px; color: #64748b; font-size: 14px; }
-        footer span { color: #38bdf8; font-weight: 800; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">A <span>Amine Web</span></div>
-        <div>
-            <a href="#services">خدماتنا</a>
-            <a href="#portfolio">أعمالنا</a>
-            <a href="#contact">اتصل بنا</a>
-        </div>
-    </nav>
+<div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
 
-    <div class="hero">
-        <div class="hero-inner">
-            <div class="hero-text">
-                <div class="badge">🚀 Design | Développement | Votre Réussite</div>
-                <h1>حوّل فكرتك إلى<br><span>موقع احترافي</span></h1>
-                <p>مواقع احترافية لنجاح أكبر — تصميم عصري، سرعة في الإنجاز، ودعم مستمر</p>
-                <a class="btn" href="https://wa.me/212628025220" target="_blank">ابدأ مشروعك الآن</a>
-                <div class="price">💰 الأسعار تبدأ من 499 درهم فقط</div>
-            </div>
-            <div class="devices">
-                <div class="monitor">
-                    <div class="m-nav">
-                        <span>A Amine Web</span>
-                        <span style="color:#94a3b8; font-weight:400;">الرئيسية · خدماتنا · اتصل بنا</span>
-                    </div>
-                    <div class="m-hero">
-                        <h5>اكتشف جمال المغرب</h5>
-                        <p>تجارب فريدة في كل وجهة</p>
-                        <span class="m-btn">اكتشف الآن</span>
-                    </div>
-                </div>
-                <div class="m-stand"></div>
-                <div class="phone">
-                    <div class="p-hero">
-                        <div class="cart">🛒</div>
-                        <h6>متجرك الإلكتروني</h6>
-                        <span class="p-btn">تسوق الآن</span>
-                    </div>
-                </div>
-            </div>
+<nav>
+    <div class="nav-inner">
+        <div class="logo">A <b>Amine Web</b></div>
+        <div class="nav-links">
+            <a href="#services">الخدمات</a>
+            <a href="#works">الأعمال</a>
+            <a href="#pricing">الأسعار</a>
+            <a href="#reviews">الآراء</a>
+            <a href="#faq">الأسئلة</a>
         </div>
+        <a class="nav-cta" href="https://wa.me/212628025220" target="_blank">ابدأ الآن</a>
     </div>
+</nav>
 
-    <div class="services" id="services">
-        <h2>خدمات<span>نا</span></h2>
-        <p class="section-sub">كل ما تحتاجه لبناء حضور رقمي قوي</p>
-        <div class="cards">
-            <div class="card">
-                <div class="icon">🏢</div>
-                <h3>مواقع الشركات</h3>
-                <p>موقع يعكس احترافية شركتك ويبني ثقة عملائك</p>
+<!-- ═══ الواجهة ═══ -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="reveal show">
+            <span class="badge"><span class="dot"></span> متوفر لاستقبال مشاريع جديدة</span>
+            <h1>حوّل فكرتك إلى<br><span>موقع احترافي</span> يبيع عنك</h1>
+            <p>وكالة تصميم مواقع في المغرب — تصميم عصري، سرعة في الإنجاز، ودعم مستمر. موقعك الجاهز في 48 ساعة.</p>
+            <div class="hero-btns">
+                <a class="btn btn-primary" href="https://wa.me/212628025220?text=سلام، بغيت نصاوب موقع احترافي" target="_blank">💬 ابدأ مشروعك الآن</a>
+                <a class="btn btn-ghost" href="#works">شاهد أعمالنا</a>
             </div>
-            <div class="card">
-                <div class="icon">🛒</div>
-                <h3>المتاجر الإلكترونية</h3>
-                <p>متجر متكامل للبيع أونلاين مع الدفع والتوصيل</p>
-            </div>
-            <div class="card">
-                <div class="icon">👤</div>
-                <h3>المواقع الشخصية</h3>
-                <p>موقع شخصي يعرّف بك وبمهاراتك وأعمالك</p>
-            </div>
-            <div class="card">
-                <div class="icon">🎨</div>
-                <h3>تصميم حسب الطلب</h3>
-                <p>تصميم فريد يناسب هويتك وأسلوبك الخاص</p>
-            </div>
-            <div class="card">
-                <div class="icon">⚡</div>
-                <h3>سرعة الإنجاز</h3>
-                <p>موقعك جاهز في 48 ساعة فقط</p>
-            </div>
-            <div class="card">
-                <div class="icon">🛠️</div>
-                <h3>دعم بعد التسليم</h3>
-                <p>متابعة وتحديثات حتى بعد تسليم الموقع</p>
+            <div class="stars-line">
+                <span class="st">★★★★★</span>
+                <span>4.9/5 — من عملاء وثقوا بنا</span>
             </div>
         </div>
-    </div>
-
-    <div class="portfolio" id="portfolio">
-        <h2>أعم<span>النا</span></h2>
-        <p class="section-sub">نماذج من المواقع التي نفذناها</p>
-        <div class="cards">
-            <div class="work">
-                <img src="1000024827.jpg" alt="مطاعم">
-                <div class="info">
-                    <h4>🍽️ مطاعم وقاعات</h4>
-                    <p>قائمة أطباق + حجز القاعات</p>
-                </div>
-            </div>
-            <div class="work">
-                <img src="1000024828.jpg" alt="صالونات">
-                <div class="info">
-                    <h4>💇 صالونات التجميل</h4>
-                    <p>خدمات وأسعار + حجز مواعيد</p>
-                    <a href="https://simoana4444-web.github.io/coiffure-demo/" target="_blank">شاهد الموقع ←</a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="1000024829.jpg" alt="متجر">
-                <div class="info">
-                    <h4>🛒 متاجر إلكترونية</h4>
-                    <p>بيع المنتجات أونلاين</p>
-                    <a href="https://simoana4444-web.github.io/home-barber/" target="_blank">شاهد الموقع ←</a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="1000024834.jpg" alt="شركة">
-                <div class="info">
-                    <h4>🏢 موقع شركة</h4>
-                    <p>هوية احترافية وخدمات متكاملة</p>
-                </div>
-            </div>
-            <div class="work">
-                <img src="1000024835.jpg" alt="شخصي">
-                <div class="info">
-                    <h4>👤 موقع شخصي</h4>
-                    <p>معرض أعمال وسيرة ذاتية</p>
-                </div>
-            </div>
-            <div class="work">
-                <img src="1000024836.jpg" alt="تعليم">
-                <div class="info">
-                    <h4>🎓 مدرسة تعليمية</h4>
-                    <p>دروس + تسجيل الطلبة</p>
+        <div class="hero-visual reveal show">
+            <div class="browser">
+                <div class="b-bar"><i></i><i></i><i></i></div>
+                <div class="b-body">
+                    <h4>موقعك هنا ✨</h4>
+                    <p>تصميم عصري · سريع · متوافق مع الهاتف</p>
+                    <span class="b-btn">احجز استشارتك المجانية</span>
                 </div>
             </div>
         </div>
     </div>
+</header>
 
-    <div class="features">
-        <div class="feature">📱 توافق مع الهاتف والحاسوب</div>
-        <div class="feature">🌐 استضافة مجانية</div>
-        <div class="feature">⚡ تسليم في 48 ساعة</div>
-        <div class="feature">🔒 دعم مستمر</div>
+<!-- ═══ شريط الثقة ═══ -->
+<div class="trust">
+    <div class="trust-inner">
+        <span>⚡ تسليم <b>48 ساعة</b></span>
+        <span>🌐 استضافة <b>مجانية</b></span>
+        <span>📱 متوافق <b>مع الجوال</b></span>
+        <span>🔒 <b>HTTPS</b> مفعّل</span>
+        <span>🛠️ دعم <b>مستمر</b></span>
     </div>
+</div>
 
-    <div class="services" style="background:#0d1b30;">
-        <h2>كيف <span>نخدم؟</span></h2>
-        <p class="section-sub">3 خطوات بسيطة وموقعك واجد!</p>
-        <div class="cards">
-            <div class="card">
-                <div class="icon">💬</div>
-                <h3>1. تواصل معنا</h3>
-                <p>ابعت لينا فكرتك واتساب ونناقش التفاصيل</p>
+<!-- ═══ عدادات ═══ -->
+<section id="stats" style="padding-top:70px">
+    <div class="container">
+        <div class="stats">
+            <div class="stat reveal"><div class="num" data-count="50">0</div><div class="lbl">+ مشروع منجز</div></div>
+            <div class="stat reveal"><div class="num" data-count="48">0</div><div class="lbl">ساعة للتسليم</div></div>
+            <div class="stat reveal"><div class="num" data-count="100">0</div><div class="lbl">% رضا العملاء</div></div>
+            <div class="stat reveal"><div class="num" data-count="24">0</div><div class="lbl">/7 دعم متوفر</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ الخدمات ═══ -->
+<section id="services" style="background:var(--bg2)">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="kicker">خدماتنا</span>
+            <h2>كل ما تحتاجه لحضور رقمي قوي</h2>
+            <p>حلول متكاملة تناسب كل نشاط</p>
+        </div>
+        <div class="grid-3">
+            <div class="svc reveal"><div class="ico">🏢</div><h3>مواقع الشركات</h3><p>موقع يعكس احترافية شركتك ويبني ثقة عملائك من أول زيارة.</p></div>
+            <div class="svc reveal"><div class="ico">🛒</div><h3>المتاجر الإلكترونية</h3><p>متجر متكامل للبيع أونلاين مع الدفع والتوصيل وإدارة المنتجات.</p></div>
+            <div class="svc reveal"><div class="ico">💈</div><h3>مواقع الصالونات</h3><p>خدمات وأسعار + حجز مواعيد أونلاين — يمتلئ جدولك تلقائياً.</p></div>
+            <div class="svc reveal"><div class="ico">🍽️</div><h3>مواقع المطاعم</h3><p>قائمة أطباق تفاعلية + حجز القاعات + طلبات أونلاين.</p></div>
+            <div class="svc reveal"><div class="ico">👤</div><h3>المواقع الشخصية</h3><p>معرض أعمال وسيرة ذاتية تفتح لك أبواب الفرص.</p></div>
+            <div class="svc reveal"><div class="ico">🎨</div><h3>تصميم حسب الطلب</h3><p>هوية بصرية فريدة تناسب نشاطك وأسلوبك الخاص.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ الأعمال ═══ -->
+<section id="works">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="kicker">أعمالنا</span>
+            <h2>نماذج من المشاريع المنفذة</h2>
+            <p>اضغط "شاهد الموقع" لتجربة النماذج الحية</p>
+        </div>
+        <div class="works">
+            <div class="work reveal"><img src="1000024827.jpg" alt="مطاعم"><div class="wi"><h4>🍽️ مطاعم وقاعات</h4><p>قائمة أطباق + حجز القاعات</p><a href="https://wa.me/212628025220?text=بغيت موقع بحال نموذج المطاعم" target="_blank">اطلب موقعاً مشابهاً ←</a></div></div>
+            <div class="work reveal"><img src="1000024828.jpg" alt="صالونات"><div class="wi"><h4>💇 صالونات التجميل</h4><p>خدمات وأسعار + حجز مواعيد</p><a href="https://simoana4444-web.github.io/coiffure-demo/" target="_blank">شاهد الموقع ←</a></div></div>
+            <div class="work reveal"><img src="1000024829.jpg" alt="متجر"><div class="wi"><h4>🛒 متاجر إلكترونية</h4><p>بيع المنتجات أونلاين</p><a href="https://simoana4444-web.github.io/home-barber/" target="_blank">شاهد الموقع ←</a></div></div>
+            <div class="work reveal"><img src="1000024834.jpg" alt="شركة"><div class="wi"><h4>🏢 موقع شركة</h4><p>هوية احترافية وخدمات متكاملة</p><a href="https://wa.me/212628025220?text=بغيت موقع شركة" target="_blank">اطلب موقعاً مشابهاً ←</a></div></div>
+            <div class="work reveal"><img src="1000024835.jpg" alt="شخصي"><div class="wi"><h4>👤 موقع شخصي</h4><p>معرض أعمال وسيرة ذاتية</p><a href="https://wa.me/212628025220?text=بغيت موقع شخصي" target="_blank">اطلب موقعاً مشابهاً ←</a></div></div>
+            <div class="work reveal"><img src="1000024836.jpg" alt="تعليم"><div class="wi"><h4>🎓 مدرسة تعليمية</h4><p>دروس + تسجيل الطلبة</p><a href="https://wa.me/212628025220?text=بغيت موقع تعليمي" target="_blank">اطلب موقعاً مشابهاً ←</a></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ الأسعار ═══ -->
+<section id="pricing" style="background:var(--bg2)">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="kicker">الأسعار</span>
+            <h2>باقات واضحة — بلا مفاجآت</h2>
+            <p>اختر ما يناسب مشروعك</p>
+        </div>
+        <div class="pricing">
+            <div class="plan reveal">
+                <h3>الباقة الأساسية</h3>
+                <div class="pr">499 <small>درهم</small></div>
+                <ul>
+                    <li>موقع من صفحة واحدة</li>
+                    <li>تصميم احترافي متجاوب</li>
+                    <li>زرار واتساب للتواصل</li>
+                    <li>استضافة مجانية</li>
+                    <li>تسليم في 48 ساعة</li>
+                </ul>
+                <a class="btn btn-ghost" href="https://wa.me/212628025220?text=بغيت الباقة الأساسية 499" target="_blank">اختر الباقة</a>
             </div>
-            <div class="card">
-                <div class="icon">🎨</div>
-                <h3>2. نصمم ليك</h3>
-                <p>تصميم احترافي يناسب نشاطك وهويتك</p>
+            <div class="plan pop reveal">
+                <span class="tag">الأكثر طلباً ⭐</span>
+                <h3>الباقة الاحترافية</h3>
+                <div class="pr">899 <small>درهم</small></div>
+                <ul>
+                    <li>كل مزايا الأساسية</li>
+                    <li>حجز مواعيد أونلاين</li>
+                    <li>ربط Google Maps</li>
+                    <li>قسم آراء العملاء</li>
+                    <li>دومين خاص .ma أو .com</li>
+                    <li>دعم شهر كامل</li>
+                </ul>
+                <a class="btn btn-primary" href="https://wa.me/212628025220?text=بغيت الباقة الاحترافية 899" target="_blank">اختر الباقة</a>
             </div>
-            <div class="card">
-                <div class="icon">⚡</div>
-                <h3>3. تسليم فـ 48 ساعة</h3>
-                <p>موقعك حي على الإنترنت + دعم مستمر</p>
+            <div class="plan reveal">
+                <h3>باقة المتجر</h3>
+                <div class="pr">1499 <small>درهم</small></div>
+                <ul>
+                    <li>متجر إلكتروني كامل</li>
+                    <li>سلة شراء ودفع أونلاين</li>
+                    <li>إدارة المنتجات</li>
+                    <li>تقارير المبيعات</li>
+                    <li>دعم 3 أشهر</li>
+                </ul>
+                <a class="btn btn-ghost" href="https://wa.me/212628025220?text=بغيت باقة المتجر 1499" target="_blank">اختر الباقة</a>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="services">
-        <h2>واش <span>قالو علينا؟</span> ⭐</h2>
-        <p class="section-sub">آراء زبناء كيثيقو بينا</p>
-        <div class="cards">
-            <div class="review-card">
-                <p>💬 "الموقع جاب ليا زبناء جداد!"</p>
-                <small>— صالون ففاس 💈</small>
+<!-- ═══ التقييمات ═══ -->
+<section id="reviews">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="kicker">آراء العملاء</span>
+            <h2>واش قالو علينا؟ ⭐</h2>
+        </div>
+        <div class="reviews">
+            <div class="rev reveal">
+                <div class="stars">★★★★★</div>
+                <p>"الموقع جاب ليا زبناء جداد من Google! خدمة سريعة واحترافية بزاف، والتسليم كان قبل الأجل."</p>
+                <div class="who"><div class="avatar">س</div><div><b>صاحب صالون</b><small>فاس 💈</small></div></div>
             </div>
-            <div class="review-card">
-                <p>💬 "خدمة سريعة واحترافية بزاف!"</p>
-                <small>— صاحب متجر إلكتروني 🛍️</small>
+            <div class="rev reveal">
+                <div class="stars">★★★★★</div>
+                <p>"تعامل راقي وصبر على جميع التعديلات. الموقع خفيف وسريع والزبناء كيمدحو فيه."</p>
+                <div class="who"><div class="avatar">م</div><div><b>صاحبة متجر</b><small>الدار البيضاء 🛍️</small></div></div>
+            </div>
+            <div class="rev reveal">
+                <div class="stars">★★★★★</div>
+                <p>"أفضل استثمار درتو لمشروعي. الثمن مناسب والنتيجة فاقت التوقعات. شكراً Amine Web!"</p>
+                <div class="who"><div class="avatar">ي</div><div><b>صاحب مطعم</b><small>مكناس 🍽️</small></div></div>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="contact" id="contact">
-        <h2>جاهز تبدأ مشروعك؟</h2>
-        <p>تواصل معنا الآن واحصل على استشارة مجانية</p>
-        <a class="btn-whatsapp" href="https://wa.me/212628025220" target="_blank">💬 تواصل معنا الآن</a>
-        <div class="info">
-            📞 +212 628 025 220<br>
-            📧 <a href="mailto:amineweb.ma@gmail.com" style="color:#e2e8f0; text-decoration:none;">amineweb.ma@gmail.com</a>
+<!-- ═══ الأسئلة الشائعة ═══ -->
+<section id="faq" style="background:var(--bg2)">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="kicker">الأسئلة الشائعة</span>
+            <h2>عندك سؤال؟</h2>
+        </div>
+        <div class="faq">
+            <div class="faq-item reveal">
+                <button class="faq-q">شحال كياخد الوقت باش يكون الموقع وجد؟ <span class="arr">⌄</span></button>
+                <div class="faq-a">48 ساعة فقط من مومالية الموافقة على التصميم. الباقات الكبيرة (المتاجر) كياخدو حتى 5 أيام.</div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-q">واش خاصني نخلص كل شهر؟ <span class="arr">⌄</span></button>
+                <div class="faq-a">لا! الاستضافة على GitHub مجانية مدى الحياة. غير الدومين (إذا اخترتيه) كيتجدد سنوياً (~200 درهم).</div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-q">واش نقدر نبدل فالمحتوى من بعد؟ <span class="arr">⌄</span></button>
+                <div class="faq-a">نعم! الباقة الاحترافية فيها دعم شهر كامل لأي تعديل. وحتى من بعد، التعديلات الصغيرة ديما بثمن رمزي.</div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-q">كيفاش كندفعو؟ <span class="arr">⌄</span></button>
+                <div class="faq-a">50% دفعة أولى ملي نتفقو، و50% ملي تشوف النتيجة وتعجبك. تحويل بنكي، CMI، ولا Cash Plus.</div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-q">واش الموقع كيخدم على الهاتف؟ <span class="arr">⌄</span></button>
+                <div class="faq-a">نعم 100% — كل مواقعنا متجاوبة (Responsive) وتشتغل بشكل مثالي على الهاتف والحاسوب.</div>
+            </div>
         </div>
     </div>
+</section>
 
-    <footer>
-        © 2026 <span>Amine Web</span> — Design | Développement | Votre Réussite
-    </footer>
+<!-- ═══ التواصل ═══ -->
+<section>
+    <div class="container">
+        <div class="cta reveal">
+            <h2>جاهز تبدأ مشروعك؟ 🚀</h2>
+            <p>تواصل معنا الآن واحصل على استشارة مجانية — نرد في أقل من ساعة</p>
+            <a class="btn-wa" href="https://wa.me/212628025220?text=سلام، بغيت نبدأ مشروعي" target="_blank">💬 تواصل معنا الآن</a>
+            <div class="mail">📞 +212 628 025 220<br>📧 <a href="mailto:amineweb.ma@gmail.com">amineweb.ma@gmail.com</a></div>
+        </div>
+    </div>
+</section>
 
-    <a href="https://wa.me/212628025220" target="_blank" style="position:fixed; bottom:20px; left:20px; background:#25d366; color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:30px; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:9999;">💬</a>
+<footer>© 2026 <b>Amine Web</b> — Design | Développement | Votre Réussite</footer>
+
+<a class="wa-float" href="https://wa.me/212628025220" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.9 1 4 1.6 6.2 1.6h.5c6.6 0 12-5.3 12-11.9C30 8.3 24.6 3 18 3h-2zm0 22.4c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.3 1.4 1.4-4.1-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.7C5.4 9.4 10.2 4.6 16 4.6S26.6 9.4 26.6 15 21.8 25.4 16 25.4zm5.8-7.6c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.7 8.7 0 0 1-2.6-1.6 9.6 9.6 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6s0-.5 0-.6-.7-1.8-1-2.4-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.4 3.4 14.6 14.6 0 0 0 5.6 5 6 6 0 0 0 3.7.8 3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.1-.3-.2-.7-.4z"/></svg>
+</a>
+
+<script>
+// ═══ حركات الظهور عند التمرير ═══
+const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting){
+            e.target.classList.add('show');
+            if(e.target.querySelector('.num')) startCounters(e.target);
+            io.unobserve(e.target);
+        }
+    });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ═══ العدادات المتحركة ═══
+function startCounters(scope){
+    scope.querySelectorAll('.num').forEach(n=>{
+        const target = +n.dataset.count;
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(target/50));
+        const t = setInterval(()=>{
+            cur += step;
+            if(cur >= target){ cur = target; clearInterval(t); }
+            n.textContent = cur;
+        }, 28);
+    });
+}
+
+// ═══ الأسئلة الشائعة ═══
+document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+        if(!wasOpen) item.classList.add('open');
+    });
+});
+</script>
+
 </body>
 </html>
